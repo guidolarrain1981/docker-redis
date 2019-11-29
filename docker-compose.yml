@@ -3,8 +3,11 @@ version: '3'
 services:
   redis_1:
     image: redis:3-alpine
+    command: redis-server --appendonly yes
     ports:
       - 6379
+    volumes:
+      - ../redis-cluster/data:/data
 
   redis_2:
     image: redis:3-alpine
